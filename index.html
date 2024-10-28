@@ -3,456 +3,236 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="MADEKO - Tienda de Herrajes y Melamina con una amplia variedad de productos para el hogar.">
-    <title>MADEKO - Tienda de Herrajes y Melamina</title>
+    <title>Calculador de Costos de Página Web</title>
     <style>
-        /* Estilos generales */
         body {
             font-family: Arial, sans-serif;
             background-color: #f4f4f4;
             margin: 0;
+            padding: 20px;
             color: #333;
         }
-        /* Encabezado */
+
         header {
             background-color: #001f3f;
             color: white;
-            padding: 1em;
             text-align: center;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
+            padding: 10px 0;
         }
-        header h1 {
-            margin: 0;
-        }
-        nav {
-            display: flex;
-            flex-wrap: wrap;
-            justify-content: center;
-            margin-top: 10px;
-        }
-        nav a {
-            color: gold;
-            margin: 0 10px;
-            text-decoration: none;
-        }
-        .login-btn {
-            background-color: gold;
-            color: #001f3f;
-            padding: 5px 10px;
-            border-radius: 5px;
-            font-weight: bold;
-            margin-left: 10px;
-            text-decoration: none;
-        }
-        /* Slider */
-        .slider {
-            position: relative;
-            width: 100%;
-            overflow: hidden;
-            height: 300px;
-        }
-        .slides {
-            display: flex;
-            transition: transform 0.5s ease-in-out;
-            width: 100%;
-        }
-        .slide {
-            min-width: 100%;
-            height: 300px;
-            position: relative;
-        }
-        .slide img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-        }
-        .caption {
-            position: absolute;
-            bottom: 10px;
-            left: 50%;
-            transform: translateX(-50%);
-            background-color: rgba(0, 0, 0, 0.7);
-            color: white;
-            padding: 10px;
-            border-radius: 5px;
-            text-align: center;
-        }
-        /* Botones de navegación */
-        .prev, .next {
-            position: absolute;
-            top: 50%;
-            transform: translateY(-50%);
-            background-color: rgba(0, 0, 0, 0.5);
-            color: white;
-            border: none;
-            padding: 10px;
-            cursor: pointer;
-            z-index: 100;
-        }
-        .prev { left: 10px; }
-        .next { right: 10px; }
-        /* Categorías Destacadas */
-        .categories {
-            display: flex;
-            flex-wrap: wrap;
-            justify-content: center;
-            padding: 2em;
-            background-color: #fff;
-        }
-        .category {
-            margin: 1em;
-            text-align: center;
-        }
-        .category img {
-            width: 100px;
-            height: 100px;
-            border-radius: 50%;
-        }
-        /* Galería de productos */
-        .product-gallery {
-            display: flex;
-            flex-wrap: wrap;
-            justify-content: center;
-            padding: 2em;
-        }
-        .product {
-            background-color: white;
-            border: 1px solid #ddd;
-            border-radius: 5px;
-            margin: 1em;
-            padding: 1em;
-            width: 250px;
-            text-align: center;
-        }
-        .product img {
-            max-width: 100%;
-            height: auto;
-            border-radius: 5px;
-        }
-        .product h3 {
-            color: #001f3f;
-        }
-        .price {
-            font-weight: bold;
-            color: green;
-        }
-        .add-to-cart {
-            background-color: #001f3f;
-            color: white;
-            border: none;
-            padding: 10px;
-            border-radius: 5px;
-            cursor: pointer;
-        }
-        /* Carrito */
-        .cart {
-            position: fixed;
-            top: 20px;
-            right: 20px;
-            background-color: white;
-            border: 1px solid #ddd;
-            border-radius: 5px;
-            padding: 20px;
-            width: 250px;
-            display: none; /* Oculto por defecto */
-            z-index: 1000;
-        }
-        .cart h2 {
-            margin: 0 0 10px;
-            font-size: 1.2em;
-        }
-        .cart-item {
-            display: flex;
-            justify-content: space-between;
-            margin-bottom: 10px;
-        }
-        .cart-btn {
-            background-color: #ff0000;
-            color: white;
-            border: none;
-            padding: 5px;
-            border-radius: 5px;
-            cursor: pointer;
-        }
-        #open-cart {
-    position: fixed;
-    bottom: 80px; /* Mueve el botón más arriba */
-    right: 20px;
-}
 
-        /* Botón de contacto */
-        .contact-btn {
-            position: fixed;
-            bottom: 20px;
-            right: 20px;
+        main {
+            background-color: white;
+            padding: 20px;
+            border-radius: 5px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+            max-width: 600px;
+            margin: 20px auto;
+        }
+
+        .form-group {
+            margin-bottom: 15px;
+        }
+
+        label {
+            display: block;
+            margin-bottom: 5px;
+        }
+
+        input[type="text"],
+        select {
+            width: 100%;
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+        }
+
+        button {
             background-color: #001f3f;
             color: white;
+            border: none;
             padding: 10px 15px;
             border-radius: 5px;
-            text-decoration: none;
-            font-size: 1em;
-            font-weight: bold;
-        }
-        #close-cart {
-            background: none;
-            color: #ff0000;
-            border: none;
-            font-size: 1.5em;
             cursor: pointer;
-            position: absolute;
-            top: 10px;
-            right: 10px;
+            font-size: 16px;
+            margin-top: 10px;
         }
 
-        .cart-btn {
-            background-color: #001f3f; /* Color de fondo */
-            color: white; /* Color del texto */
-            padding: 10px 15px; /* Espaciado */
-            border-radius: 5px; /* Bordes redondeados */
-            cursor: pointer; /* Cambia el cursor al pasar */
-            position: fixed; /* Fijo en la pantalla */
-            bottom: 20px; /* A 20px del fondo */
-            right: 20px; /* A 20px de la derecha */
-            z-index: 1000; /* Asegúrate de que esté por encima de otros elementos */
+        button:hover {
+            background-color: #0056b3;
         }
 
-        /* Pie de página */
-        footer {
-            background-color: #001f3f;
-            color: white;
+        .result {
+            margin-top: 20px;
             text-align: center;
-            padding: 1em;
-            position: relative;
-            bottom: 0;
-            width: 100%;
         }
-        /* Responsividad */
-        @media (max-width: 768px) {
-            .categories, .product-gallery {
-                flex-direction: column;
-                align-items: center;
-            }
-            .product {
-                width: 90%;
-            }
-            .slider {
-                height: 200px;
-            }
-            .caption {
-                font-size: 0.8em; /* Ajustar tamaño del texto en la caption */
-            }
-        }
-        @media (max-width: 480px) {
-            header h1 {
-                font-size: 1.5em; /* Ajustar tamaño del encabezado */
-            }
-            nav a {
-                font-size: 0.9em; /* Ajustar tamaño de texto en la navegación */
-            }
-            .product {
-                padding: 0.5em; /* Reducir el padding en los productos */
-            }
-            .cart {
-                width: 80%; /* Hacer el carrito más ancho en pantallas pequeñas */
-            }
-            .contact-btn {
-                font-size: 0.9em; /* Ajustar tamaño del botón de contacto */
-                padding: 8px 12px; /* Reducir padding */
-            }
+
+        footer {
+            text-align: center;
+            margin-top: 20px;
+            color: #777;
         }
     </style>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
 </head>
 <body>
     <header>
-        <h1>MADEKO</h1>
-        <nav>
-            <a href="#">Inicio</a>
-            <a href="#">Productos</a>
-            <a href="#">Contacto</a>
-            <a href="#" class="login-btn">Iniciar Sesión</a>
-        </nav>
+        <h1>Calculador de Costos de Página Web</h1>
     </header>
-
-    <!-- Slider de Promociones -->
-    <div class="slider">
-        <div class="slides">
-            <div class="slide">
-                <img src="https://www.oppoliahome.com/wp-content/uploads/2022/04/Modern-Matte-Black-Kitchen-Cabinets-OBK22-Dark-2-1.jpg" alt="Cocina moderna con gabinetes oscuros">
-                <div class="caption">¡Aprovecha nuestras promociones en mueblería!</div>
+    
+    <main>
+        <form id="costCalculator">
+            <div class="form-group">
+                <label for="clientName">Nombre del Cliente:</label>
+                <input type="text" id="clientName" required>
             </div>
-            <div class="slide">
-                <img src="https://imarket.com.pe/hogar/wp-content/uploads/2024/05/Centro-de-tv-moderno-A-3.jpg" alt="Centro de TV moderno">
-                <div class="caption">Diseños modernos para tu hogar.</div>
+            <div class="form-group">
+                <label for="clientId">Cédula del Cliente:</label>
+                <input type="text" id="clientId" required>
             </div>
-            <div class="slide">
-                <img src="https://www.closetartusa.com/wp-content/uploads/2022/06/modern-closet-with-lighting-7.jpg" alt="Closet moderno con iluminación">
-                <div class="caption">Transforma tu espacio con estilo.</div>
+            <div class="form-group">
+                <label for="pages">Número de Páginas 250$ Por página:</label>
+                <select id="pages" required>
+                    <option value="0">0 Página</option>
+                    <option value="1">1 Página</option>
+                    <option value="2">2 Páginas</option>
+                    <option value="3">3 Páginas</option>
+                    <option value="4">4 Páginas</option>
+                    <option value="5">5 Páginas</option>
+                </select>
             </div>
-        </div>
-        <button class="prev" onclick="changeSlide(-1)">&#10094;</button>
-        <button class="next" onclick="changeSlide(1)">&#10095;</button>
-    </div>
+            <div class="form-group">
+                <label for="features">Características adicionales:</label>
+                <select id="features">
+                    <option value="0">Ninguna</option>
+                    <option value="150">Formulario de Contacto ($150)</option>
+                    <option value="250">Blog ($250)</option>
+                    <option value="670">Tienda en Línea ($670)</option>
+                </select>
+            </div>
+            <div class="form-group">
+                <label for="design">Tipo de Diseño:</label>
+                <select id="design">
+                    <option value="0">Plantilla ($0)</option>
+                    <option value="500">Diseño Personalizado ($500)</option>
+                </select>
+            </div>
+            <div class="form-group">
+                <label for="domain">Dominio:</label>
+                <select id="domain">
+                    <option value="100">Dominio .COM .NET .CO Durante 1 año ($100)</option>
+                </select>
+            </div>
+            <div class="form-group">
+                <label for="hosting">Hosting:</label>
+                <select id="hosting">
+                    <option value="125">Hosting SSD con alta velocidad ($125)</option>
+                </select>
+            </div>
+            <div class="form-group">
+                <p>Se inicia con el 50% del Proyecto. Se harán actualizaciones semanales para que pueda ver la continuidad del proyecto. El tiempo de entrega dependerá de la cantidad de modificaciones que el cliente requiera.</p>
+                <p><strong>Nota:</strong> Después de la inicial, no existe reembolso.</p>
+            </div>
+            <button type="button" id="calculateBtn">Calcular Costo</button>
+            <button type="button" id="generatePdfBtn">Generar PDF</button>
+        </form>
 
-    <!-- Sección de Categorías Destacadas -->
-    <section class="categories">
-        <div class="category">
-            <img src="https://tecnomueble.com.mx/storage/blog/irgygiNhAWbttmYw4bXsCmBEBg4UiY-metaaGVycmFqZXMgbWFkZXJhIHkgbW9iaWxpYXJpby5qcGc=-.jpg" alt="Herrajes diversos">
-            <h3>Herrajes</h3>
+        <div class="result">
+            <h2>Costo Total: <span id="totalCost">$0</span></h2>
         </div>
-        <div class="category">
-            <img src="https://venezuela.masisa.com/wp-content/uploads/2014/12/TablasMelamina2.jpg" alt="Tablas de melamina">
-            <h3>Melamina</h3>
-        </div>
-        <div class="category">
-            <img src="https://mueblescook.com.mx/wp-content/uploads/2021/07/aventos-HF.jpg" alt="Accesorios de muebles">
-            <h3>Accesorios</h3>
-        </div>
-    </section>
-
-    <!-- Galería de Productos -->
-    <section class="product-gallery">
-        <div class="product" data-name="Bisagra" data-price="12000">
-            <img src="https://cdn.cocinaintegral.net/cocinaintegral/2023/03/metalla0.jpg" alt="Bisagra Hafele para muebles">
-            <h3>Bisagra</h3>
-            <p>Perfecta para muebles de cocina y closets.</p>
-            <p class="price">$12,000 COP</p>
-            <button class="add-to-cart">Agregar al Carrito</button>
-        </div>
-        <div class="product" data-name="Rieles" data-price="15000">
-            <img src="https://http2.mlstatic.com/D_NQ_NP_829118-MLU74103344723_012024-O.webp" alt="Rieles para muebles de cocina">
-            <h3>Rieles para muebles</h3>
-            <p>Durabilidad y facilidad de uso.</p>
-            <p class="price">$15,000 COP</p>
-            <button class="add-to-cart">Agregar al Carrito</button>
-        </div>
-        <div class="product" data-name="Melamina" data-price="25000">
-            <img src="https://venezuela.masisa.com/wp-content/uploads/2014/12/TablasMelamina2.jpg" alt="Melamina en varios colores">
-            <h3>Melamina en varios colores</h3>
-            <p>Ideal para proyectos personalizados.</p>
-            <p class="price">$25,000 COP</p>
-            <button class="add-to-cart">Agregar al Carrito</button>
-        </div>
-        <div class="product" data-name="Melamina1" data-price="30000">
-            <img src="https://mueblescook.com.mx/wp-content/uploads/2021/07/aventos-HF.jpg" alt="Accesorios de lujo para muebles">
-            <h3>Accesorios de lujo</h3>
-            <p>Ideal para proyectos personalizados.</p>
-            <p class="price">$30,000 COP</p>
-            <button class="add-to-cart">Agregar al Carrito</button>
-        </div>
-        <div class="product" data-name="Melamina2" data-price="20000">
-            <img src="https://ae01.alicdn.com/kf/S76194da060474a87b1c246dd8a72c5364/Tira-de-luces-LED-de-1-a-50m-lote-Luz-lineal-integrada-perfil-de-aluminio-de.jpg" alt="Iluminación LED">
-            <h3>Iluminación</h3>
-            <p>Ideal para estilo.</p>
-            <p class="price">$20,000 COP</p>
-            <button class="add-to-cart">Agregar al Carrito</button>
-        </div>
-    </section>
-
-    <!-- Carrito de Compras -->
-    <div class="cart" id="cart">
-        <button id="close-cart" class="cart-btn">✖</button>
-        <h2>Carrito</h2>
-        <div id="cart-items"></div>
-        <button id="checkout" class="cart-btn">Pagar</button>
-    </div>
-
-    <button id="open-cart" class="cart-btn" style="position: fixed; bottom: 80px; right: 20px;">Ver Carrito</button>
-
-
-    <a href="#" class="contact-btn">Contáctanos</a>
+    </main>
 
     <footer>
-        <p>&copy; 2024 MADEKO. Todos los derechos reservados.</p>
+        <p>&copy; 2024 Calculador de Costos. Todos los derechos reservados.</p>
     </footer>
 
     <script>
-        let currentIndex = 0;
-        const slides = document.querySelectorAll('.slide');
-        const slideDurations = [3000, 5000, 4000];
-    
-        function showSlide(index) {
-            const totalSlides = slides.length;
-            if (index >= totalSlides) {
-                currentIndex = 0;
-            } else if (index < 0) {
-                currentIndex = totalSlides - 1;
-            } else {
-                currentIndex = index;
+        document.getElementById('calculateBtn').addEventListener('click', () => {
+            const pages = parseInt(document.getElementById('pages').value);
+            const features = parseInt(document.getElementById('features').value);
+            const design = parseInt(document.getElementById('design').value);
+            const domain = parseInt(document.getElementById('domain').value);
+            const hosting = parseInt(document.getElementById('hosting').value);
+
+            const basePricePerPage = 250; // Precio base por página
+            const totalCost = (pages * basePricePerPage) + features + design + domain + hosting;
+
+            document.getElementById('totalCost').textContent = `$${totalCost.toLocaleString()}`;
+        });
+
+        document.getElementById('generatePdfBtn').addEventListener('click', () => {
+            const { jsPDF } = window.jspdf;
+            const doc = new jsPDF();
+
+            const clientName = document.getElementById('clientName').value;
+            const clientId = document.getElementById('clientId').value;
+            const pages = parseInt(document.getElementById('pages').value);
+            const features = parseInt(document.getElementById('features').value);
+            const design = parseInt(document.getElementById('design').value);
+            const domain = parseInt(document.getElementById('domain').value);
+            const hosting = parseInt(document.getElementById('hosting').value);
+            const totalCost = (pages * 250) + features + design + domain + hosting;
+
+            // Encabezado
+            doc.setFontSize(20);
+            doc.text('Factura de Proyecto', 105, 10, { align: 'center' });
+
+            // Información del cliente
+            doc.setFontSize(12);
+            doc.text(`Cliente: ${clientName}`, 20, 30);
+            doc.text(`Cédula: ${clientId}`, 20, 40);
+
+            // Tabla de productos y costos
+            const startY = 60;
+            const lineHeight = 12; // Aumentar la altura de línea para separación
+            const lineOffset = 3; // Separación entre texto y línea
+
+            // Encabezados de la tabla
+            doc.setFontSize(14);
+            doc.text('Detalles del Proyecto', 20, startY);
+            doc.setFontSize(12);
+            doc.text('Descripción', 20, startY + lineHeight);
+            doc.text('Costo (COP)', 160, startY + lineHeight);
+            doc.line(20, startY + lineHeight + lineOffset, 190, startY + lineHeight + lineOffset); // Línea
+
+            // Detalles
+            const items = [
+                `Páginas (${pages})`, 
+                `Características tipo de pagina`, 
+                `Diseño Personalizado`, 
+                `Dominio propio`, 
+                `Hosting alquiler`
+            ];
+            const costs = [
+                (pages * 250).toLocaleString(), 
+                features.toLocaleString(), 
+                design.toLocaleString(), 
+                domain.toLocaleString(), 
+                hosting.toLocaleString()
+            ];
+
+            for (let i = 0; i < items.length; i++) {
+                doc.text(items[i], 20, startY + (i + 2) * lineHeight);
+                doc.text(`$${costs[i]}`, 160, startY + (i + 2) * lineHeight);
+                doc.line(20, startY + (i + 3) * lineHeight + lineOffset, 190, startY + (i + 3) * lineHeight + lineOffset); // Línea
             }
-            const offset = -currentIndex * 100;
-            document.querySelector('.slides').style.transform = `translateX(${offset}%)`;
-        }
-    
-        function changeSlide(direction) {
-            showSlide(currentIndex + direction);
-            resetTimer();
-        }
-    
-        let timer;
-    
-        function resetTimer() {
-            clearTimeout(timer);
-            timer = setTimeout(() => {
-                const nextIndex = currentIndex + 1 < slides.length ? currentIndex + 1 : 0;
-                showSlide(nextIndex);
-                resetTimer();
-            }, slideDurations[currentIndex]);
-        }
-    
-        // Iniciar el slider
-        resetTimer();
-    
-        // Carrito de compras
-        const cart = [];
-        const cartItemsContainer = document.getElementById('cart-items');
-        const cartElement = document.getElementById('cart');
-    
-        document.querySelectorAll('.add-to-cart').forEach(button => {
-            button.addEventListener('click', () => {
-                const productElement = button.parentElement;
-                const productName = productElement.getAttribute('data-name');
-                const productPrice = productElement.getAttribute('data-price');
-    
-                cart.push({ name: productName, price: productPrice });
-                updateCart();
-            });
+
+            // Total
+            doc.text('Total:', 20, startY + (items.length + 2) * lineHeight);
+            doc.text(`$${totalCost.toLocaleString()}`, 160, startY + (items.length + 2) * lineHeight);
+            doc.line(20, startY + (items.length + 3) * lineHeight + lineOffset, 190, startY + (items.length + 3) * lineHeight + lineOffset); // Línea
+
+            // Nota
+            doc.text(`\nSe inicia con el 50% del Proyecto.`, 20, startY + (items.length + 5) * lineHeight);
+            doc.text(`Se harán actualizaciones semanales para que pueda ver la continuidad del proyecto.`, 20, startY + (items.length + 6) * lineHeight);
+            doc.text(`El tiempo de entrega dependerá de la cantidad de modificaciones que el cliente requiera.`, 20, startY + (items.length + 7) * lineHeight);
+            doc.text(`Después de la inicial, no existe reembolso.`, 20, startY + (items.length + 8) * lineHeight);
+
+            // Línea de firma
+            doc.text('Firma:', 20, startY + (items.length + 10) * lineHeight);
+            doc.line(20, startY + (items.length + 11) * lineHeight + lineOffset, 190, startY + (items.length + 11) * lineHeight + lineOffset); // Línea
+
+            doc.save('factura_proyecto.pdf');
         });
-    
-        function updateCart() {
-            cartItemsContainer.innerHTML = '';
-            cart.forEach((item, index) => {
-                const cartItem = document.createElement('div');
-                cartItem.classList.add('cart-item');
-                cartItem.innerHTML = `${item.name} - $${item.price} <button class="cart-btn" onclick="removeFromCart(${index})">Eliminar</button>`;
-                cartItemsContainer.appendChild(cartItem);
-            });
-            cartElement.style.display = cart.length ? 'block' : 'none';
-        }
-    
-        function removeFromCart(index) {
-            cart.splice(index, 1);
-            updateCart();
-        }
-    
-        // Botón de pago
-        document.getElementById('checkout').addEventListener('click', () => {
-            alert('Proceso de pago no implementado aún.');
-        });
-    
-        // Función para alternar la visibilidad del carrito
-        function toggleCart() {
-            const cartElement = document.getElementById('cart');
-            cartElement.style.display = (cartElement.style.display === 'none' || cartElement.style.display === '') ? 'block' : 'none';
-        }
-        
-        // Inicialmente ocultar el carrito
-        document.getElementById('cart').style.display = 'none';
-    
-        // Agregar evento al botón de cerrar
-        document.getElementById('close-cart').addEventListener('click', toggleCart);
-        document.getElementById('open-cart').addEventListener('click', toggleCart);
     </script>
 </body>
 </html>
